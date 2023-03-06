@@ -13,3 +13,25 @@ public:
         return s + k;
     }
 };
+class Solution {
+public:
+    int findKthPositive(vector<int>& arr, int k) {
+        //Brute force
+        vector<int> freq(1001);
+        for(auto it: arr)
+        {
+          freq[it]++;
+        }
+    
+    for(auto it=1; it<freq.size();it++)
+    {
+      if(freq[it]==0)
+      {
+        k--;
+      }
+      if(k==0)
+      return it;
+    }
+    return 1000+k;
+  }
+};
